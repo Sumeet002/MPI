@@ -1,0 +1,9 @@
+CC = arm-linux-gnueabihf-gcc 
+LDLIBS = `pkg-config --libs ompi` 
+CFLAGS = `pkg-config --cflags ompi`
+
+mat_mpi: mat_mpi_mul.c
+	$(CC) $(CFLAGS) $(LDLIBS) -o  mat_mpi  mat_mpi_mul.c
+
+clean:
+	rm -f mat_mpi

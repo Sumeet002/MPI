@@ -1,0 +1,9 @@
+
+MPI_COMPILE_FLAGS = -I/usr/lib/openmpi/include -I/usr/lib/openmpi/include/openmpi -pthread
+MPI_LINK_FLAGS =  -pthread -L/usr//lib -L/usr/lib/openmpi/lib -lmpi -ldl -lhwloc
+
+mat_mpi: mat_mpi_mul.c
+	$(CC) $(MPI_COMPILE_FLAGS) mat_mpi_mul.c $(MPI_LINK_FLAGS) -o mat_mpi
+
+clean:
+	rm -f mat_mpi
